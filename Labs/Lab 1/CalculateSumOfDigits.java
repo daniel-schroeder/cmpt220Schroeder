@@ -12,9 +12,9 @@ public class CalculateSumOfDigits {
     System.out.print("Enter a number between 0 and 1000"); //asks user to give a number
     int givenNumber = input.nextInt(); //creates an int using user input 
     int firstDigit = givenNumber % 10; //creates an int which holds the digit in the ones place
-    givenNumber = givenNumber / 10; //removes the digit in the ones place
+    givenNumber /= 10; //removes the digit in the ones place
     int secondDigit = givenNumber %10; //creates an int which holds the new digit in the ones place
-    givenNumber = givenNumber / 10; //removes the digit in the ones place
+    givenNumber /= 10; //removes the digit in the ones place
     int thirdDigit = givenNumber %10; //creates an int which holds the new digit in the ones place
     int sum = firstDigit + secondDigit + thirdDigit; //calculates the sum of all digits
     System.out.println("The sum of the digits is " + sum); //prints out the sum of the digits
