@@ -10,7 +10,7 @@ public class CalculateGratuity {
   public static void main (String [] args) {
     Scanner input = new Scanner(System.in); //creates a new scanner object    
     //asks the user to input a subtotal and gratuity rate
-    System.out.print("Enter the subtotal and gratuity rate in percent"); 
+    System.out.print("Enter the subtotal and gratuity rate in percent: "); 
     double subtotal = input.nextDouble(); //creates a double using user input 
     double gratuityRate = input.nextDouble(); //creates a double using user input 
     double gratuity = (gratuityRate / 100) * subtotal; //calculates the gratuity

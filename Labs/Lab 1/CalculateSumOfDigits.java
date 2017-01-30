@@ -9,7 +9,7 @@ import java.util.Scanner;//imports the Scanner class from the java.util package
 public class CalculateSumOfDigits {
   public static void main(String [] args) {
     Scanner input = new Scanner(System.in); //creates a new scanner object
-    System.out.print("Enter a number between 0 and 1000"); //asks user to give a number
+    System.out.print("Enter a number between 0 and 1000: "); //asks user to give a number
     int givenNumber = input.nextInt(); //creates an int using user input 
     int firstDigit = givenNumber % 10; //creates an int which holds the digit in the ones place
     givenNumber /= 10; //removes the digit in the ones place
