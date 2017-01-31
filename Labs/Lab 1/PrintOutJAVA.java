@@ -16,4 +16,4 @@ public class PrintOutJAVA {
     System.out.println("J   J  AAAAA    V V    AAAAA"); //prints out third row
     System.out.println(" J J  A     A    V    A     A");//prints out fourth row
   }
-}
+} 
