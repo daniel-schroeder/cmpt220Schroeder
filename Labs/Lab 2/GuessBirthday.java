@@ -33,7 +33,53 @@ public class GuessBirthday {
     System.out.print("Is your birthday in set 1?\n");
     System.out.print(set1);
     System.out.print("\nEnter Y for yes and N for no: ");
+    char letter = input.nextLine().charAt(0);
+    int answer = (int) letter;
     
-      
+    if (answer == 89) {
+      day += 1;
+    }
+    
+    System.out.print("\nIs your birthday in set 2?\n");
+    System.out.print(set2);
+    System.out.print("\nEnter Y for yes and N for no: ");
+    letter = input.nextLine().charAt(0);
+    answer = (int) letter;
+   
+   if (answer == 89) {
+      day += 2;
+    }
+    
+    System.out.print("\nIs your birthday in set 3?\n");
+    System.out.print(set3);
+    System.out.print("\nEnter Y for yes and N for no: ");
+    letter = input.nextLine().charAt(0);
+    answer = (int) letter;
+    
+    if (answer == 89) {
+      day += 4;
+    }
+    
+    System.out.print("\nIs your birthday in set 4?\n");
+    System.out.print(set4);
+    System.out.print("\nEnter Y for yes and N for no: ");
+    letter = input.nextLine().charAt(0);
+    answer = (int) letter;
+    
+    if (answer == 89) {
+      day += 8;
+    }
+    
+    System.out.print("\nIs your birthday in set 5?\n");
+    System.out.print(set5);
+    System.out.print("\nEnter Y for yes and N for no: ");
+    letter = input.nextLine().charAt(0);
+    answer = (int) letter;
+    
+    if (answer == 89) {
+      day += 16;
+    }      
+    
+    System.out.println("\nYour birthday is " + day + "!");
   }
 }
