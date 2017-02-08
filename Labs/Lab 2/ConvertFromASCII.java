@@ -7,6 +7,7 @@
  */
 import java.util.Scanner;
 public class ConvertFromASCII {
+  //this method takes an inputted number and returns the character it corresponds to
   public static void main (String [] args) {
     Scanner input = new Scanner(System.in);
     System.out.print("Enter an ASCII code: ");

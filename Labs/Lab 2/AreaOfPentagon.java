@@ -7,6 +7,7 @@
  */
 import java.util.Scanner;
 public class AreaOfPentagon {
+  //this method computes the area of a pentagon based on user inputted "radius"
   public static void main (String [] args) {
     Scanner input = new Scanner(System.in);
     System.out.print("Please provide the length from the center to a vertex: ");

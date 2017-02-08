@@ -7,6 +7,7 @@
  */
 import java.util.Scanner;
 public class SortIntegers {
+  //this method sorts a series of three user inputted numbers in ascending order
   public static void main (String[] args) {
     Scanner input = new Scanner(System.in);
     int smallestInt = 0;

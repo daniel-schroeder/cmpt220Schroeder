@@ -7,6 +7,7 @@
  */
 import java.util.Scanner;
 public class DisplayNumberOfDays {
+  //this method displays the number of days in a given month
   public static void main (String [] args) {
     Scanner input = new Scanner(System.in);
     String month = "";

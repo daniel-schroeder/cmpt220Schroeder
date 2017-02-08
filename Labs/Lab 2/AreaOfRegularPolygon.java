@@ -7,6 +7,7 @@
  */
 import java.util.Scanner;
 public class AreaOfRegularPolygon {
+  //computes the area of a polygon based on user inputted side numbers and length
   public static void main (String [] args) {
     Scanner input = new Scanner(System.in);
     System.out.print("Enter the number of sides: ");

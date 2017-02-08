@@ -7,6 +7,8 @@
  */
 import java.util.Scanner;
 public class Lottery {
+  //this method generates a random number and asks the user to input a number as well
+  //and then compares the two to see if they match at all
   public static void main (String [] args) {
     Scanner input = new Scanner(System.in);
     int lotteryNumber = (int) (Math.random() * 1000);
