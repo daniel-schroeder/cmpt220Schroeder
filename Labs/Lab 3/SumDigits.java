@@ -8,6 +8,8 @@
  */
 import java.util.Scanner;
 public class SumDigits {
+  //prompts the user to enter a number then calls the sumDigits() function
+  //then prints out the sum after recieving a value from sumDigits()
   public static void main (String [] args) {
     Scanner input = new Scanner(System.in);
     System.out.print("Enter an integer ");
@@ -15,6 +17,7 @@ public class SumDigits {
     System.out.println("The sum of the digits is " + sumDigits(givenNumber));
   }  
   
+  //sums the digits of n and returns that sum
   public static int sumDigits(long n) {
     int sum = 0;
     while (n > 0) {

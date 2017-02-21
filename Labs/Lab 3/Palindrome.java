@@ -8,6 +8,9 @@
  */
 import java.util.Scanner;
 public class Palindrome {
+  //prompts the user to enter a number then calls the isPalindrome() function
+  //then prints out whether or not the given number is a palindrome
+  //after recieving a value from isPalindrome()
   public static void main (String [] args) {
     Scanner input = new Scanner(System.in);
     System.out.print("Enter an integer ");
@@ -21,6 +24,7 @@ public class Palindrome {
   }
  
   //returns true if number is a palindrome 
+  //calls the reverse function to check
   public static boolean isPalindrome(int number) {
     if (reverse(number) == number) {
       return true;
