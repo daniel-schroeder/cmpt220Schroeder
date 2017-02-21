@@ -13,6 +13,7 @@ public class Driver_lab3 {
     while (true) {
         double x1 = input.nextDouble();
        
+       //stops the loop if the input for x1 is zero
        if (x1 == 0) {
           break;
         }
@@ -22,7 +23,9 @@ public class Driver_lab3 {
         double y2 = input.nextDouble();
         double p = input.nextDouble();
         
-        System.out.printf( "%.10f" , Math.pow(Math.pow(Math.abs(x1 - x2) , p) 
+        //computes and prints out the p-norm distance using the inputs given 
+        //(|x1 - x2|^p + |y1 - y2|^p)^(1/p)
+        System.out.printf( "%.10f" , Math.pow(Math.pow(Math.abs(x1 - x2) , p)
           + Math.pow(Math.abs(y1 - y2), p), 1 / p));
         System.out.println();
     }
