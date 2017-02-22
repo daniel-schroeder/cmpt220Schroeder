@@ -1,0 +1,27 @@
+/**
+ * Daniel Schroeder
+ * 2/21/2107
+ * Section 201
+ * Lab 4
+ * version 1
+ * Software Developement 1
+ */
+import java.util.Scanner;
+public class CountLettersInString {
+  public static void main (String [] args) {
+    Scanner input = new Scanner(System.in);
+    System.out.print("Enter a string: ");
+    System.out.println("The number of letters in the string is "
+      + CountLetters(input.nextLine()));
+  }
+  
+  public static int CountLetters(String s) {
+    int numLetters = 0;
+    for (int i = 0; i < s.length(); i++) {
+      if (Character.isLetter(s.charAt(i))) {
+        numLetters ++;
+      }
+    }
+    return numLetters;
+  }
+}
