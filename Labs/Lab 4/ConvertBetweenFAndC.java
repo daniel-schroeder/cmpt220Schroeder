@@ -8,6 +8,9 @@
  */
 import java.util.Scanner;
 public class ConvertBetweenFAndC {
+  //prints out a list from 30-40 degrees celcius and the corresponding fahrenheits
+  //and also prints out list from 30-120 degrees fahrenheit by 10's and corresponding
+  //celcius values
   public static void main (String [] args) {
     System.out.println("Celcius       |           Fahrenheit");    
     int i = 40;
