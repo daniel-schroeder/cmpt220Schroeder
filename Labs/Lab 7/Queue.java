@@ -19,7 +19,7 @@ public class Queue {
 
   public void enQueue(int v) {
     if (size >= elements.length) {
-      int[] temp = new int[elements.length *2];
+      int[] temp = new int[elements.length * 2];
       System.arraycopy(elements, 0, temp, 0, elements.length);
       elements = temp;
     }
