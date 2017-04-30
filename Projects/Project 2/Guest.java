@@ -10,12 +10,25 @@ import java.util.ArrayList;
 public class Guest extends Hotel {
 
   String guestName = "";
-  int reservationID = 0;
   String reservationName = "";
+  int numRooms = 0;
+  int roomType = 0;
+  int numRooms2 = 0;
+  int roomType2 = 0;
+  int numRooms3 = 0;
+  int roomType3 = 0;
+  int roomFloor = 1;
+  int arrivalMonth = 0;
+  int departureMonth = 0;
+  int arrivalDay = 0;
+  int departureDay = 0;
+  int arrivalYear = 0;
+  int departureYear = 0;
+
+  public Guest() {}
 
   public Guest (String lastName) {
     guestName = lastName;
-    reservationID = guests.indexOf(this);
     reservationName = lastName;
   }
 }

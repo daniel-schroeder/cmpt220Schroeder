@@ -9,21 +9,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 public class HotelReservations extends Guest  {
 
-  int reservationID = 0;
-  String reservationName = "";
-  int numRooms = 0;
-  int roomType = 0;
-  int numRooms2 = 0;
-  int roomType2 = 0;
-  int numRooms3 = 0;
-  int roomType3 = 0;
-  int roomFloor = 1;
-  int arrivalMonth = 0;
-  int departureMonth = 0;
-  int arrivalDay = 0;
-  int departureDay = 0;
-  int arrivalYear = 0;
-  int departureYear = 0;
+  public HotelReservations() {}
 
   public HotelReservations(String lastName) {
     super(lastName);
@@ -35,12 +21,8 @@ public class HotelReservations extends Guest  {
       + " How can we help you today? Enter 1 for main menu or 2 to exit.");
     int menu = input.nextInt();
     if (menu == 1) {
-      System.out.println("Please enter your last name.");
-      String name = input.next();
-      HotelReservations hR = new HotelReservations(name);
-      Guest guest = new Guest(name);
-      guests.add(guest);
-      hR.mainMenu();
+      HotelReservations hr = new HotelReservations();
+      hr.mainMenu();
     }
     else {
       System.out.println("Have a nice day! We hope to see you again soon.");
@@ -76,6 +58,10 @@ public class HotelReservations extends Guest  {
       mainMenu();
     }
     else if (action == 3) {
+      System.out.println("Please enter your last name.");
+      String name = input.next();
+      HotelReservations guest = new HotelReservations(name);
+      guests.add(guest);
       this.reserveRooms();
     }
     else {
@@ -130,7 +116,7 @@ public class HotelReservations extends Guest  {
       }
     }
 
-    System.out.println("Thank you. Your reservation ID number is " + this.reservationID);
+    System.out.println("Thank you for your reservation");
     System.out.println("");
 
     this.mainMenu();
@@ -156,6 +142,6 @@ public class HotelReservations extends Guest  {
   }
 
   public void makePayment(String lastName) {
-
+    mainMenu();
   }
 }
