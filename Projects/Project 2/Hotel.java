@@ -15,7 +15,7 @@ public class Hotel {
   public static int availabalePenthouses = 10;
 
   public static ArrayList<Hotel> rooms = new ArrayList<Hotel>();
-  public static ArrayList<Hotel> guests = new ArrayList<Hotel>();
+  public static ArrayList<Guest> guests = new ArrayList<Guest>();
 
   public static void main(String[] args) {
     rooms.add(new SingleRoom(1));

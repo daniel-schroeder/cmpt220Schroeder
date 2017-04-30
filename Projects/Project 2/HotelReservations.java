@@ -7,7 +7,7 @@
  */
 import java.util.Scanner;
 import java.util.ArrayList;
-public class HotelReservations extends Hotel {
+public class HotelReservations extends Guest  {
 
   int reservationID = 0;
   String reservationName = "";
@@ -26,8 +26,7 @@ public class HotelReservations extends Hotel {
   int departureYear = 0;
 
   public HotelReservations(String lastName) {
-    reservationID = guests.indexOf(this);
-    reservationName = lastName;
+    super(lastName);
   }
 
   public static void main(String [] args) {
@@ -37,8 +36,10 @@ public class HotelReservations extends Hotel {
     int menu = input.nextInt();
     if (menu == 1) {
       System.out.println("Please enter your last name.");
-      HotelReservations hR = new HotelReservations(input.next());
-      guests.add(hR);
+      String name = input.next();
+      HotelReservations hR = new HotelReservations(name);
+      Guest guest = new Guest(name);
+      guests.add(guest);
       hR.mainMenu();
     }
     else {
@@ -53,12 +54,28 @@ public class HotelReservations extends Hotel {
       + " for cancel reservation, 3 for make a new reservation, or 0 to exit.");
     int action = input.nextInt();
     if (action == 1) {
-      System.out.println("What is your reservation ID number?");
-      this.makePayment(input.nextInt());
+      System.out.println("What is your reservation last name?");
+      String name = input.next();
+      for (int i = 0; i < guests.size(); i++) {
+        if (guests.get(i).guestName == name) {
+          this.makePayment(name);
+        }
+      }
+      System.out.println("No reservation found under this name");
+      System.out.println("");
+      mainMenu();
     }
     else if (action == 2) {
-      System.out.println("What is your reservation ID number?");
-      this.cancelReservation(input.nextInt());
+      System.out.println("What is your reservation last name?");
+      String name = input.next();
+      for (int i = 0; i < guests.size(); i++) {
+        if (guests.get(i).guestName == name) {
+          this.cancelReservation(name);
+        }
+      }
+      System.out.println("No reservation found under this name");
+      System.out.println("");
+      mainMenu();
     }
     else if (action == 3) {
       this.reserveRooms();
@@ -121,24 +138,25 @@ public class HotelReservations extends Hotel {
     this.mainMenu();
   }
 
-  public void cancelReservation(int reservationID) {
+  public void cancelReservation(String lastName) {
     Scanner input = new Scanner(System.in);
-    System.out.println("Type \"CONFIRM\" to confirm your cancelatiom"
-      + "or \"CANCEL\" to go back.");
+    System.out.println("Type \"CONFIRM\" to confirm your cancelation"
+      + " or \"CANCEL\" to go back.");
     String confirmation = input.next();
     if (confirmation.equals("CANCEL")) {
-
+      mainMenu();
     }
     else if (confirmation.equals("CONFIRM")) {
-
+      System.out.println("Your reservation has been cancelled. We hope to see "
+        + "you soon");
     }
     else {
-      System.out.println("Sorry that was not a valid response. Please type"
-       + " \"CONFIRM\" to confirm your cancelation or \"CANCEL\" to go back.");
+      System.out.println("Sorry that was not a valid response.");
+      cancelReservation(lastName);
     }
   }
 
-  public void makePayment(int reservationID) {
+  public void makePayment(String lastName) {
 
   }
 }
