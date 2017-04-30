@@ -57,24 +57,22 @@ public class HotelReservations extends Guest  {
       System.out.println("What is your reservation last name?");
       String name = input.next();
       for (int i = 0; i < guests.size(); i++) {
-        if (guests.get(i).guestName == name) {
+        if (guests.get(i).guestName.equals(name)) {
           this.makePayment(name);
         }
       }
-      System.out.println("No reservation found under this name");
-      System.out.println("");
+      System.out.println("No reservation found under this name \n");
       mainMenu();
     }
     else if (action == 2) {
       System.out.println("What is your reservation last name?");
       String name = input.next();
       for (int i = 0; i < guests.size(); i++) {
-        if (guests.get(i).guestName == name) {
+        if (guests.get(i).guestName.equals(name)) {
           this.cancelReservation(name);
         }
       }
-      System.out.println("No reservation found under this name");
-      System.out.println("");
+      System.out.println("No reservation found under this name \n");
       mainMenu();
     }
     else if (action == 3) {
@@ -148,7 +146,8 @@ public class HotelReservations extends Guest  {
     }
     else if (confirmation.equals("CONFIRM")) {
       System.out.println("Your reservation has been cancelled. We hope to see "
-        + "you soon");
+        + "you soon \n");
+      mainMenu();
     }
     else {
       System.out.println("Sorry that was not a valid response.");
