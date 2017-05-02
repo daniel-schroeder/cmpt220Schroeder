@@ -11,6 +11,7 @@ public class HotelRooms extends Hotel {
 
   boolean isOccupied = false;
   int floorNumber = 0;
+  int dateOfArrival;
 
   public HotelRooms() {}
 
@@ -19,14 +20,23 @@ public class HotelRooms extends Hotel {
   }
 
   public boolean singleRoomAvailable(int date) {
-    return false;
+    if (singleRoomsAvailable.isEmpty()) {
+      return false;
+    }
+    return true;
   }
 
   public boolean doubleRoomAvailable(int date) {
-    return false;
+    if (doubleRoomsAvailable.isEmpty()) {
+      return false;
+    }
+    return true;
   }
 
   public boolean penthouseAvailable(int date) {
-    return false;
+    if (penthouseRoomsAvailable.isEmpty()) {
+      return false;
+    }
+    return true;
   }
 }
