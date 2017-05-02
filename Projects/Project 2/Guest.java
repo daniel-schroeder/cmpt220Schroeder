@@ -7,7 +7,7 @@
  */
 import java.util.Scanner;
 import java.util.ArrayList;
-public class Guest extends Hotel {
+public class Guest extends HotelRooms {
 
   String guestName = "";
   String reservationName = "";

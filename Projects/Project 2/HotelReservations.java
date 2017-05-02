@@ -93,26 +93,26 @@ public class HotelReservations extends Guest  {
     System.out.println("What type of room would you like? Enter 1 for a single,"
       + " 2 for a double, or 3 for a penthouse. If you need more than one type"
       + " enter the first now and then you'll have a chance to add another");
-    roomType = input.nextInt();
+    int requestedRroomType = input.nextInt();
 
     System.out.println("How many rooms of this type would you like?");
-    numRooms = input.nextInt();
+    int numRoomsRequested = input.nextInt();
 
     System.out.println("Would you like another type of room? Enter 0 for no"
       + " other rooms, 1 for a single, 2 for a double, or 3 for a penthouse");
-    roomType2 = input.nextInt();
+    int requestedRoomType2 = input.nextInt();
 
     if (roomType2 != 0) {
       System.out.println("How many rooms of this type would you like?");
-      numRooms2 = input.nextInt();
+      int numRoomsRequested2 = input.nextInt();
 
       System.out.println("Would you like another type of room? Enter 0 for no"
         + " other rooms, 1 for a single, 2 for a double, or 3 for a penthouse");
-      roomType3 = input.nextInt();
+      int requestedRoomType3 = input.nextInt();
 
       if (roomType3 != 0) {
         System.out.println("How many rooms of this type would you like?");
-        numRooms3 = input.nextInt();
+        int numRoomsRequested3 = input.nextInt();
       }
     }
 
