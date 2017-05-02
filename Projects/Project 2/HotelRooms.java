@@ -10,14 +10,9 @@ import java.util.ArrayList;
 public class HotelRooms extends Hotel {
 
   boolean isOccupied = false;
-  int floorNumber = 0;
   int dateOfArrival;
 
   public HotelRooms() {}
-
-  public HotelRooms(int floorNum) {
-    floorNumber = floorNum;
-  }
 
   public boolean singleRoomAvailable(int numRoomsNeeded) {
     if (singleRoomsAvailable.size() < numRoomsNeeded) {

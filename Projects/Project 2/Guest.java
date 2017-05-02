@@ -17,7 +17,6 @@ public class Guest extends HotelRooms {
   int roomType2 = 0;
   int numRooms3 = 0;
   int roomType3 = 0;
-  int roomFloor = 1;
   int arrivalMonth = 0;
   int departureMonth = 0;
   int arrivalDay = 0;
