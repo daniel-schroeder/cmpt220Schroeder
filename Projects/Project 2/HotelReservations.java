@@ -133,6 +133,11 @@ public class HotelReservations extends Guest  {
     else if (confirmation.equals("CONFIRM")) {
       System.out.println("Your reservation has been cancelled. We hope to see "
         + "you soon \n");
+      for (int i = 0; i < guests.size(); i++) {
+        if (guests.get(i).guestName.equals(lastName)) {
+          guests.remove(i);
+        }
+      }
       mainMenu();
     }
     else {
