@@ -67,7 +67,7 @@ public class HotelReservations extends Guest  {
     }
     else {
       System.out.println("Have a nice day! We hope to see you again soon.");
-      return;
+      System.exit(0);
     }
   }
 
@@ -104,32 +104,47 @@ public class HotelReservations extends Guest  {
 
     if (requestedRoomType == 1) {
       if(!singleRoomAvailable(numRoomsRequested)) {
-        System.out.println("Sorry there are no rooms of this type left \n");
+        System.out.println("Sorry there are " + singleRoomsAvailable.size()
+          + " rooms of this type left \n");
         roomSelection1();
       }
       else {
         roomType = requestedRoomType;
         numRooms = numRoomsRequested;
+        while (numRoomsRequested > 0) {
+          singleRoomsAvailable.remove(0);
+          numRoomsRequested--;
+        }
       }
     }
     else if (requestedRoomType == 2) {
       if(!doubleRoomAvailable(numRoomsRequested)) {
-        System.out.println("Sorry there are no rooms of this type left \n");
+        System.out.println("Sorry there are " + doubleRoomsAvailable.size()
+          + " rooms of this type left \n");
         roomSelection1();
       }
       else {
         roomType = requestedRoomType;
         numRooms = numRoomsRequested;
+        while (numRoomsRequested > 0) {
+          doubleRoomsAvailable.remove(0);
+          numRoomsRequested--;
+        }
       }
     }
     else {
       if (!penthouseAvailable(numRoomsRequested)) {
-        System.out.println("Sorry there are no rooms of this type left \n");
+        System.out.println("Sorry there are " + penthouseRoomsAvailable.size()
+          + " rooms of this type left \n");
         roomSelection1();
       }
       else {
         roomType = requestedRoomType;
         numRooms = numRoomsRequested;
+        while (numRoomsRequested > 0) {
+          penthouseRoomsAvailable.remove(0);
+          numRoomsRequested--;
+        }
       }
     }
     roomSelection2();
@@ -148,35 +163,53 @@ public class HotelReservations extends Guest  {
 
       if (requestedRoomType2 == 1) {
         if(!singleRoomAvailable(numRoomsRequested2)) {
-          System.out.println("Sorry there are no rooms of this type left \n");
+          System.out.println("Sorry there are " + singleRoomsAvailable.size()
+            + " rooms of this type left \n");
           roomSelection2();
         }
         else {
           roomType2 = requestedRoomType2;
           numRooms2 = numRoomsRequested2;
+          while (numRoomsRequested2 > 0) {
+            singleRoomsAvailable.remove(0);
+            numRoomsRequested2--;
+          }
         }
       }
       else if (requestedRoomType2 == 2) {
         if(!doubleRoomAvailable(numRoomsRequested2)) {
-          System.out.println("Sorry there are no rooms of this type left \n");
+          System.out.println("Sorry there are " + doubleRoomsAvailable.size()
+            + " rooms of this type left \n");
           roomSelection2();
         }
         else {
           roomType2 = requestedRoomType2;
           numRooms2 = numRoomsRequested2;
+          while (numRoomsRequested2 > 0) {
+            doubleRoomsAvailable.remove(0);
+            numRoomsRequested2--;
+          }
         }
       }
       else {
         if (!penthouseAvailable(numRoomsRequested2)) {
-          System.out.println("Sorry there are no rooms of this type left \n");
+          System.out.println("Sorry there are " + penthouseRoomsAvailable.size()
+            + " rooms of this type left \n");
           roomSelection2();
         }
         else {
           roomType2 = requestedRoomType2;
           numRooms2 = numRoomsRequested2;
+          while (numRoomsRequested2 > 0) {
+            penthouseRoomsAvailable.remove(0);
+            numRoomsRequested2--;
+          }
         }
       }
       roomSelection3();
+    }
+    else {
+      finishReservation();
     }
   }
 
@@ -193,36 +226,58 @@ public class HotelReservations extends Guest  {
 
       if (requestedRoomType3 == 1) {
         if(!singleRoomAvailable(numRoomsRequested3)) {
-          System.out.println("Sorry there are no rooms of this type left \n");
+          System.out.println("Sorry there are " + singleRoomsAvailable.size()
+            + " rooms of this type left \n");
           roomSelection3();
         }
         else {
           roomType3 = requestedRoomType3;
           numRooms3 = numRoomsRequested3;
+          while (numRoomsRequested3 > 0) {
+            singleRoomsAvailable.remove(0);
+            numRoomsRequested3--;
+          }
         }
       }
       else if (requestedRoomType3 == 2) {
         if(!doubleRoomAvailable(numRoomsRequested3)) {
-          System.out.println("Sorry there are no rooms of this type left \n");
+          System.out.println("Sorry there are " + doubleRoomsAvailable.size()
+            + " rooms of this type left \n");
           roomSelection3();
         }
         else {
           roomType3 = requestedRoomType3;
           numRooms3 = numRoomsRequested3;
+          while (numRoomsRequested3 > 0) {
+            doubleRoomsAvailable.remove(0);
+            numRoomsRequested3--;
+          }
         }
       }
       else {
         if (!penthouseAvailable(numRoomsRequested3)) {
-          System.out.println("Sorry there are no rooms of this type left \n");
+          System.out.println("Sorry there are " + penthouseRoomsAvailable.size()
+            + " rooms of this type left \n");
           roomSelection3();
         }
         else {
           roomType3 = requestedRoomType3;
           numRooms3 = numRoomsRequested3;
+          while (numRoomsRequested3 > 0) {
+            penthouseRoomsAvailable.remove(0);
+            numRoomsRequested3--;
+          }
         }
       }
     }
+    else {
+      finishReservation();
+    }
+    finishReservation();
+  }
 
+  public void finishReservation() {
+    Scanner input = new Scanner(System.in);
     System.out.println("Thank you for your reservation. Would you like to pay" +
       " now or upon arrival? Enter 1 for now and 2 for upon arrival.");
     int choice = input.nextInt();
@@ -243,13 +298,73 @@ public class HotelReservations extends Guest  {
       mainMenu();
     }
     else if (confirmation.equals("CONFIRM")) {
-      System.out.println("Your reservation has been cancelled. We hope to see "
-        + "you soon \n");
+
       for (int i = 0; i < guests.size(); i++) {
         if (guests.get(i).guestName.equals(lastName)) {
+          int j = guests.get(i).roomType;
+          if (j == 1) {
+            while (numRooms > 0) {
+              singleRoomsAvailable.add(new SingleRoom());
+              numRooms--;
+            }
+          }
+          else if (j == 2) {
+            while (numRooms > 0) {
+              doubleRoomsAvailable.add(new DoubleRoom());
+              numRooms--;
+            }
+          }
+          else {
+            while (numRooms > 0) {
+              penthouseRoomsAvailable.add(new PenthouseRoom());
+              numRooms--;
+            }
+          }
+
+          int m = guests.get(i).roomType2;
+          if (m == 1) {
+            while (numRooms2 > 0) {
+              singleRoomsAvailable.add(new SingleRoom());
+              numRooms2--;
+            }
+          }
+          else if (m == 2) {
+            while (numRooms2 > 0) {
+              doubleRoomsAvailable.add(new DoubleRoom());
+              numRooms2--;
+            }
+          }
+          else {
+            while (numRooms2 > 0) {
+              penthouseRoomsAvailable.add(new PenthouseRoom());
+              numRooms2--;
+            }
+          }
+
+          int n = guests.get(i).roomType3;
+          if (n == 1) {
+            while (numRooms3 > 0) {
+              singleRoomsAvailable.add(new SingleRoom());
+              numRooms3--;
+            }
+          }
+          else if (n == 2) {
+            while (numRooms3 > 0) {
+              doubleRoomsAvailable.add(new DoubleRoom());
+              numRooms3--;
+            }
+          }
+          else {
+            while (numRooms3 > 0) {
+              penthouseRoomsAvailable.add(new PenthouseRoom());
+              numRooms3--;
+            }
+          }
           guests.remove(i);
         }
       }
+      System.out.println("Your reservation has been cancelled. We hope to see "
+        + "you soon \n");
       mainMenu();
     }
     else {
