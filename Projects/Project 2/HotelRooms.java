@@ -9,9 +9,6 @@ import java.util.Scanner;
 import java.util.ArrayList;
 public class HotelRooms extends Hotel {
 
-  boolean isOccupied = false;
-  int dateOfArrival;
-
   public HotelRooms() {}
 
   public boolean singleRoomAvailable(int numRoomsNeeded) {

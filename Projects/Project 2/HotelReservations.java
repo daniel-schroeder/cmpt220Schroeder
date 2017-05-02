@@ -59,11 +59,18 @@ public class HotelReservations extends Guest  {
       mainMenu();
     }
     else if (action == 3) {
+      if (singleRoomsAvailable.size() == 0 &&
+        doubleRoomsAvailable.size() == 0 &&
+        penthouseRoomsAvailable.size() == 0) {
+          System.out.println("Sorry there are no rooms available at this time. "
+            + "We hope to see you soon");
+        mainMenu();
+        }
       System.out.println("Please enter your last name.");
       String name = input.next();
       HotelReservations guest = new HotelReservations(name);
       guests.add(guest);
-      this.reservation();
+      guest.reservation();
     }
     else {
       System.out.println("Have a nice day! We hope to see you again soon.");
@@ -301,6 +308,7 @@ public class HotelReservations extends Guest  {
 
       for (int i = 0; i < guests.size(); i++) {
         if (guests.get(i).guestName.equals(lastName)) {
+
           int j = guests.get(i).roomType;
           if (j == 1) {
             while (numRooms > 0) {
