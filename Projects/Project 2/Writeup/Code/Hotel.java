@@ -16,6 +16,22 @@ public class Hotel {
 
   public Hotel() {}
 
+  public static void main(String [] args) {
+    Scanner input = new Scanner(System.in);
+    createHotel();
+    System.out.println("Welcome to Dans Super Cool Hotel for Super Cool People!"
+      + " How can we help you today? Enter\n1 for main menu\n2 to exit.");
+    int menu = input.nextInt();
+    if (menu == 1) {
+      HotelReservations hr = new HotelReservations();
+      hr.mainMenu();
+    }
+    else {
+      System.out.println("\nHave a nice day! We hope to see you again soon.");
+      return;
+    }
+  }
+
   public static void createHotel() {
     singleRoomsAvailable.add(new SingleRoom());
     singleRoomsAvailable.add(new SingleRoom());

@@ -15,26 +15,10 @@ public class HotelReservations extends Guest  {
     super(lastName);
   }
 
-  public static void main(String [] args) {
-    Scanner input = new Scanner(System.in);
-    createHotel();
-    System.out.println("Welcome to Dans Super Cool Hotel for Super Cool People!"
-      + " How can we help you today? Enter\n1 for main menu\n2 to exit.");
-    int menu = input.nextInt();
-    if (menu == 1) {
-      HotelReservations hr = new HotelReservations();
-      hr.mainMenu();
-    }
-    else {
-      System.out.println("\nHave a nice day! We hope to see you again soon.");
-      return;
-    }
-  }
-
   public void mainMenu() {
     Scanner input = new Scanner(System.in);
-    System.out.println("\nWhat would you like to do? Enter\n1 for make payment\n2"
-      + " for cancel reservation\n3 to make a new reservation\n0 to exit.");
+    System.out.println("\nWhat would you like to do? Enter\n1 to make payment\n2"
+      + " to cancel reservation\n3 to make a new reservation\n0 to exit.");
     int action = input.nextInt();
     if (action == 1) {
       System.out.println("\nWhat is your reservation last name?");
@@ -101,10 +85,12 @@ public class HotelReservations extends Guest  {
   public void roomSelection1() {
     Scanner input = new Scanner(System.in);
 
-    System.out.println("\nWhat type of room would you like? Enter\n1 for a single"
-      + " ($100)\n2 for a double ($150)\n3 for a penthouse ($200)\nIf you need"
-      + " more than one type enter the first now and then you'll have a chance"
-      + " to add another.");
+    System.out.println("\nWould you like another type of room? Enter\n0 for no"
+      + " other rooms\n1 for a single ($100) " + singleRoomsAvailable.size()
+      + " available\n2 for a double ($150) " + doubleRoomsAvailable.size()
+      + " available\n3 for a penthouse ($200) " + penthouseRoomsAvailable.size()
+      + " available\nIf more than one type of room is needed, enter one for now."
+      + " There will be a chance to add extra later");
     int requestedRoomType = input.nextInt();
 
     System.out.println("\nHow many rooms of this type would you like?");
@@ -162,8 +148,10 @@ public class HotelReservations extends Guest  {
     Scanner input = new Scanner(System.in);
 
     System.out.println("\nWould you like another type of room? Enter\n0 for no"
-      + " other rooms\n1 for a single ($100)\n2 for a double ($150)\n3 for a"
-      + " penthouse ($200)");
+      + " other rooms\n1 for a single ($100) " + singleRoomsAvailable.size()
+      + " available\n2 for a double ($150) " + doubleRoomsAvailable.size()
+      + " available\n3 for a penthouse ($200) " + penthouseRoomsAvailable.size()
+      + " available");
     int requestedRoomType2 = input.nextInt();
 
     if (requestedRoomType2 != 0) {
@@ -226,8 +214,10 @@ public class HotelReservations extends Guest  {
     Scanner input = new Scanner(System.in);
 
     System.out.println("\nWould you like another type of room? Enter\n0 for no"
-      + " other rooms\n1 for a single ($100)\n2 for a double ($150)\n3 for a"
-      + " penthouse ($200)");
+      + " other rooms\n1 for a single ($100) " + singleRoomsAvailable.size()
+      + " available\n2 for a double ($150) " + doubleRoomsAvailable.size()
+      + " available\n3 for a penthouse ($200) " + penthouseRoomsAvailable.size()
+      + " available");
     int requestedRoomType3 = input.nextInt();
 
     if (requestedRoomType3 != 0) {
@@ -441,7 +431,6 @@ public class HotelReservations extends Guest  {
       String address = input.next();
 
       System.out.println("\nYour reservation has been paid for. Thank you");
-      mainMenu();
     }
     else {
       System.out.println("\nEnter paypal username");
@@ -449,6 +438,7 @@ public class HotelReservations extends Guest  {
 
       System.out.println("\nEnter paypal password");
       String password = input.next();
+      System.out.println("\nYour reservation has been paid for. Thank you");
     }
     mainMenu();
   }
