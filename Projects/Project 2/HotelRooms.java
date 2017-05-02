@@ -19,22 +19,22 @@ public class HotelRooms extends Hotel {
     floorNumber = floorNum;
   }
 
-  public boolean singleRoomAvailable(int date) {
-    if (singleRoomsAvailable.isEmpty()) {
+  public boolean singleRoomAvailable(int numRoomsNeeded) {
+    if (singleRoomsAvailable.size() < numRoomsNeeded) {
       return false;
     }
     return true;
   }
 
-  public boolean doubleRoomAvailable(int date) {
-    if (doubleRoomsAvailable.isEmpty()) {
+  public boolean doubleRoomAvailable(int numRoomsNeeded) {
+    if (doubleRoomsAvailable.size() < numRoomsNeeded) {
       return false;
     }
     return true;
   }
 
-  public boolean penthouseAvailable(int date) {
-    if (penthouseRoomsAvailable.isEmpty()) {
+  public boolean penthouseAvailable(int numRoomsNeeded) {
+    if (penthouseRoomsAvailable.size() < numRoomsNeeded) {
       return false;
     }
     return true;
