@@ -10,5 +10,9 @@ import java.util.ArrayList;
 public class HotelRooms extends Hotel {
 
   boolean isOccupied = false;
+  int floorNumber = 0;
 
+  public HotelRooms(int floorNum) {
+    floorNumber = floorNum;
+  }
 }

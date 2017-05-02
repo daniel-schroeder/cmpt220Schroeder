@@ -9,9 +9,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 public class SingleRoom extends HotelRooms {
 
-  int floorNumber = 0;
-
   public SingleRoom(int floorNum) {
-    floorNumber = floorNum;
+    super(floorNum);
   }
 }
