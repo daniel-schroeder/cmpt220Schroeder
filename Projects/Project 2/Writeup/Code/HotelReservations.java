@@ -382,6 +382,40 @@ public class HotelReservations extends Guest  {
   }
 
   public void makePayment(String lastName) {
+    int price = 0;
+
+    int i = this.roomType;
+    if (i == 1) {
+      price = price + 100 * numRooms;
+    }
+    else if (i == 2) {
+      price = price + 150 * numRooms;
+    }
+    else {
+      price = price + 200 * numRooms;
+    }
+
+    int m = this.roomType2;
+    if (m == 1) {
+      price = price + 100 * numRooms2;
+    }
+    else if (m == 2) {
+      price = price + 150 * numRooms2;
+    }
+    else {
+      price = price + 200 * numRooms2;
+    }
+
+    int j = this.roomType3;
+    if (j == 1) {
+      price = price + 100 * numRooms3;
+    }
+    else if (j == 2) {
+      price = price + 150 * numRooms3;
+    }
+    else {
+      price = price + 200 * numRooms3;
+    }
     mainMenu();
   }
 }
