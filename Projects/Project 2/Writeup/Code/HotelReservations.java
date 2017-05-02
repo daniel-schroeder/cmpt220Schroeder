@@ -385,6 +385,7 @@ public class HotelReservations extends Guest  {
   }
 
   public void makePayment(String lastName) {
+    Scanner input = new Scanner(System.in);
     int price = 0;
 
     int i = this.roomType;
@@ -420,6 +421,35 @@ public class HotelReservations extends Guest  {
       price = price + 200 * numRooms3;
     }
     System.out.println("\nThe price is $" + price);
+    System.out.println("\nHow would you like to pay? Enter\n1 for credit/debit"
+      + " card\n2 for paypal");
+    int paymentMethod = input.nextInt();
+    if (paymentMethod == 1) {
+      System.out.println("\nEnter the name on the card");
+      String name = input.next();
+
+      System.out.println("\nEnter the card number (just numbers)");
+      String  cardNum = input.next();
+
+      System.out.println("\nEnter the expiration date");
+      String expireDate = input.next();
+
+      System.out.println("\nEnter the security code");
+      int securityCode = input.nextInt();
+
+      System.out.println("\nEnter the billing address (Street, City, State, Zip)");
+      String address = input.next();
+
+      System.out.println("\nYour reservation has been paid for. Thank you");
+      mainMenu();
+    }
+    else {
+      System.out.println("\nEnter paypal username");
+      String username = input.next();
+
+      System.out.println("\nEnter paypal password");
+      String password = input.next();
+    }
     mainMenu();
   }
 }
