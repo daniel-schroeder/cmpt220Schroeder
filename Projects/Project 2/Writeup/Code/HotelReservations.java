@@ -86,9 +86,9 @@ public class HotelReservations extends Guest  {
     Scanner input = new Scanner(System.in);
 
     System.out.println("\nWould you like another type of room? Enter\n0 for no"
-      + " other rooms\n1 for a single ($100) " + singleRoomsAvailable.size()
-      + " available\n2 for a double ($150) " + doubleRoomsAvailable.size()
-      + " available\n3 for a penthouse ($200) " + penthouseRoomsAvailable.size()
+      + " other rooms\n1 for a single ($100/night) " + singleRoomsAvailable.size()
+      + " available\n2 for a double ($150/night) " + doubleRoomsAvailable.size()
+      + " available\n3 for a penthouse ($200/night) " + penthouseRoomsAvailable.size()
       + " available\nIf more than one type of room is needed, enter one for now."
       + " There will be a chance to add extra later");
     int requestedRoomType = input.nextInt();
@@ -148,9 +148,9 @@ public class HotelReservations extends Guest  {
     Scanner input = new Scanner(System.in);
 
     System.out.println("\nWould you like another type of room? Enter\n0 for no"
-      + " other rooms\n1 for a single ($100) " + singleRoomsAvailable.size()
-      + " available\n2 for a double ($150) " + doubleRoomsAvailable.size()
-      + " available\n3 for a penthouse ($200) " + penthouseRoomsAvailable.size()
+      + " other rooms\n1 for a single ($100/night) " + singleRoomsAvailable.size()
+      + " available\n2 for a double ($150/night) " + doubleRoomsAvailable.size()
+      + " available\n3 for a penthouse ($200/night) " + penthouseRoomsAvailable.size()
       + " available");
     int requestedRoomType2 = input.nextInt();
 
@@ -214,9 +214,9 @@ public class HotelReservations extends Guest  {
     Scanner input = new Scanner(System.in);
 
     System.out.println("\nWould you like another type of room? Enter\n0 for no"
-      + " other rooms\n1 for a single ($100) " + singleRoomsAvailable.size()
-      + " available\n2 for a double ($150) " + doubleRoomsAvailable.size()
-      + " available\n3 for a penthouse ($200) " + penthouseRoomsAvailable.size()
+      + " other rooms\n1 for a single ($100/night) " + singleRoomsAvailable.size()
+      + " available\n2 for a double ($150/night) " + doubleRoomsAvailable.size()
+      + " available\n3 for a penthouse ($200/night) " + penthouseRoomsAvailable.size()
       + " available");
     int requestedRoomType3 = input.nextInt();
 
@@ -410,7 +410,8 @@ public class HotelReservations extends Guest  {
     else {
       price = price + 200 * numRooms3;
     }
-    System.out.println("\nThe price is $" + price);
+    System.out.println("\nThe price is $" + price + " per night");
+
     System.out.println("\nHow would you like to pay? Enter\n1 for credit/debit"
       + " card\n2 for paypal");
     int paymentMethod = input.nextInt();
