@@ -17,10 +17,10 @@ public class HotelReservations extends Guest  {
 
   public void mainMenu() {
     Scanner input = new Scanner(System.in);
-    System.out.println("\nWhat would you like to do? Enter\n1 to make payment\n2"
-      + " to cancel reservation\n3 to make a new reservation\n0 to exit.");
+    System.out.println("\nWhat would you like to do? Enter\n1 to make a new "
+      + "reservation\n2 to make a payment\n3 to cancel a reservation\n0 to exit.");
     int action = input.nextInt();
-    if (action == 1) {
+    if (action == 2) {
       System.out.println("\nWhat is your reservation last name?");
       String name = input.next();
       for (int i = 0; i < guests.size(); i++) {
@@ -31,18 +31,10 @@ public class HotelReservations extends Guest  {
       System.out.println("\nNo reservation found under this name\n");
       mainMenu();
     }
-    else if (action == 2) {
-      System.out.println("\nWhat is your reservation last name?");
-      String name = input.next();
-      for (int i = 0; i < guests.size(); i++) {
-        if (guests.get(i).guestName.equals(name)) {
-          this.cancelReservation(name);
-        }
-      }
-      System.out.println("\nNo reservation found under this name\n");
-      mainMenu();
-    }
     else if (action == 3) {
+      cancelReservationCheck(guestName);
+    }
+    else if (action == 1) {
       if (singleRoomsAvailable.size() == 0 &&
         doubleRoomsAvailable.size() == 0 &&
         penthouseRoomsAvailable.size() == 0) {
@@ -85,8 +77,8 @@ public class HotelReservations extends Guest  {
   public void roomSelection1() {
     Scanner input = new Scanner(System.in);
 
-    System.out.println("\nWould you like another type of room? Enter\n0 for no"
-      + " other rooms\n1 for a single ($100/night) " + singleRoomsAvailable.size()
+    System.out.println("\nWhat type of room would you like? Enter\n1 for a"
+      + " single ($100/night) " + singleRoomsAvailable.size()
       + " available\n2 for a double ($150/night) " + doubleRoomsAvailable.size()
       + " available\n3 for a penthouse ($200/night) " + penthouseRoomsAvailable.size()
       + " available\nIf more than one type of room is needed, enter one for now."
@@ -289,7 +281,84 @@ public class HotelReservations extends Guest  {
     }
   }
 
-  public void cancelReservation(String lastName) {
+  public void cancelReservationCheck(String lastName) {
+    Scanner input = new Scanner(System.in);
+    String typeOfRoom = "";
+    String typeOfRoom2 = "";
+    String typeOfRoom3 = "";
+    System.out.println("\nWhat is your reservation last name?");
+    String name = input.next();
+    for (int i = 0; i < guests.size(); i++) {
+      if (guests.get(i).guestName.equals(name)) {
+        if (guests.get(i).roomType == 1) {
+          typeOfRoom = "single room";
+        }
+        else if (guests.get(i).roomType == 2) {
+          typeOfRoom = "double room";
+        }
+        else if (guests.get(i).roomType == 3) {
+          typeOfRoom = "penthouse";
+        }
+        if (roomType2 != 0) {
+          if (guests.get(i).roomType2 == 1) {
+            typeOfRoom2 = "single room";
+          }
+          else if (guests.get(i).roomType2 == 2) {
+            typeOfRoom2 = "double room";
+          }
+          else if (guests.get(i).roomType2 == 3) {
+            typeOfRoom2 = "penthouse";
+          }
+        }
+        if (roomType3 != 0) {
+          if (guests.get(i).roomType3 == 1) {
+            typeOfRoom3 = "single room";
+          }
+          else if (guests.get(i).roomType3 == 2) {
+            typeOfRoom3 = "double room";
+          }
+          else if (guests.get(i).roomType3 == 3) {
+            typeOfRoom3 = "penthouse";
+          }
+        }
+        if (numRooms2 == 0 && numRooms3 == 0) {
+          System.out.println("\nWe found a reservation under the name "
+            + guests.get(i).guestName + " with " + numRooms + " "
+            + typeOfRoom + "(s)");
+          System.out.println("Is this the one you would like to cancel? Enter\n"
+            + "1 for yes\n2 for no");
+          if (input.nextInt() == 1) {
+            cancelReservation(i);
+          }
+        }
+        if (numRooms2 != 0 && numRooms3 == 0) {
+          System.out.println("\nWe found a reservation under the name "
+            + guests.get(i).guestName + " with " + numRooms + " "
+            + typeOfRoom + "(s) and " + numRooms2 + " " + typeOfRoom2 + "(s)");
+          System.out.println("Is this the one you would like to cancel? Enter\n"
+            + "1 for yes\n2 for no");
+          if (input.nextInt() == 1) {
+            cancelReservation(i);
+          }
+        }
+        if (numRooms3 != 0) {
+          System.out.println("\nWe found a reservation under the name "
+            + guests.get(i).guestName + " with " + numRooms + " "
+            + typeOfRoom + "(s) and " + numRooms2 + " " + typeOfRoom2
+            + "(s) and "  + numRooms3 + " " + typeOfRoom3 + "(s)");
+          System.out.println("Is this the one you would like to cancel? Enter\n"
+            + "1 for yes\n2 for no");
+          if (input.nextInt() == 1) {
+            cancelReservation(i);
+          }
+        }
+      }
+    }
+    System.out.println("\nNo reservation found under this name\n");
+    mainMenu();
+  }
+
+  public void cancelReservation(int index) {
     Scanner input = new Scanner(System.in);
     System.out.println("\nType \"CONFIRM\" to confirm your cancelation"
       + " or \"CANCEL\" to go back.");
@@ -299,69 +368,63 @@ public class HotelReservations extends Guest  {
     }
     else if (confirmation.equals("CONFIRM")) {
 
-      for (int i = 0; i < guests.size(); i++) {
-        if (guests.get(i).guestName.equals(lastName)) {
+        int j = guests.get(index).roomType;
+        if (j == 1) {
+          while (numRooms > 0) {
+            singleRoomsAvailable.add(new SingleRoom());
+            numRooms--;
+          }
+        }
+        else if (j == 2) {
+          while (numRooms > 0) {
+            doubleRoomsAvailable.add(new DoubleRoom());
+            numRooms--;
+          }
+        }
+        else {
+          while (numRooms > 0) {
+            penthouseRoomsAvailable.add(new PenthouseRoom());
+            numRooms--;
+          }
+        }
 
-          int j = guests.get(i).roomType;
-          if (j == 1) {
-            while (numRooms > 0) {
-              singleRoomsAvailable.add(new SingleRoom());
-              numRooms--;
-            }
-          }
-          else if (j == 2) {
-            while (numRooms > 0) {
-              doubleRoomsAvailable.add(new DoubleRoom());
-              numRooms--;
-            }
-          }
-          else {
-            while (numRooms > 0) {
-              penthouseRoomsAvailable.add(new PenthouseRoom());
-              numRooms--;
-            }
-          }
-
-          int m = guests.get(i).roomType2;
+        int m = guests.get(index).roomType2;
           if (m == 1) {
-            while (numRooms2 > 0) {
-              singleRoomsAvailable.add(new SingleRoom());
-              numRooms2--;
-            }
+          while (numRooms2 > 0) {
+            singleRoomsAvailable.add(new SingleRoom());
+            numRooms2--;
           }
-          else if (m == 2) {
-            while (numRooms2 > 0) {
-              doubleRoomsAvailable.add(new DoubleRoom());
-              numRooms2--;
-            }
+        }
+        else if (m == 2) {
+          while (numRooms2 > 0) {
+            doubleRoomsAvailable.add(new DoubleRoom());
+            numRooms2--;
           }
-          else {
-            while (numRooms2 > 0) {
-              penthouseRoomsAvailable.add(new PenthouseRoom());
-              numRooms2--;
-            }
+        }
+        else {
+          while (numRooms2 > 0) {
+            penthouseRoomsAvailable.add(new PenthouseRoom());
+            numRooms2--;
           }
+        }
 
-          int n = guests.get(i).roomType3;
-          if (n == 1) {
-            while (numRooms3 > 0) {
-              singleRoomsAvailable.add(new SingleRoom());
-              numRooms3--;
-            }
+        int n = guests.get(index).roomType3;
+        if (n == 1) {
+          while (numRooms3 > 0) {
+            singleRoomsAvailable.add(new SingleRoom());
+            numRooms3--;
           }
-          else if (n == 2) {
-            while (numRooms3 > 0) {
-              doubleRoomsAvailable.add(new DoubleRoom());
-              numRooms3--;
-            }
+        }
+        else if (n == 2) {
+          while (numRooms3 > 0) {
+            doubleRoomsAvailable.add(new DoubleRoom());
+            numRooms3--;
           }
-          else {
-            while (numRooms3 > 0) {
-              penthouseRoomsAvailable.add(new PenthouseRoom());
-              numRooms3--;
-            }
-          }
-          guests.remove(i);
+        }
+      else {
+        while (numRooms3 > 0) {
+          penthouseRoomsAvailable.add(new PenthouseRoom());
+          numRooms3--;
         }
       }
       System.out.println("\nYour reservation has been cancelled. We hope to see "
@@ -370,8 +433,9 @@ public class HotelReservations extends Guest  {
     }
     else {
       System.out.println("\nSorry that was not a valid response.");
-      cancelReservation(lastName);
+      cancelReservation(index);
     }
+    guests.remove(index);
   }
 
   public void makePayment(String lastName) {
