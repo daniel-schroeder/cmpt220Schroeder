@@ -1,0 +1,10 @@
+34 pts
+
+The project attempts to make hotel reservations.
+The idea has good merit. 
+
+However, there are some issues...
+Overall:
+- The project is extremely easy. You can do a lot better than this. -5pts
+
+- Decent work below average of an SD1 student. -1pt
